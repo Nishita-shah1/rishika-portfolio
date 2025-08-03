@@ -129,7 +129,7 @@ export default function Portfolio() {
             <div className="flex-shrink-0">
               <div className="w-80 h-80 rounded-full overflow-hidden border-4 border-pink-200 shadow-lg">
                 <img
-                  src="/placeholder.svg?height=320&width=320"
+                  src="/rishikapic.jpg"
                   alt="Rishika Rajora"
                   className="w-full h-full object-cover"
                 />
