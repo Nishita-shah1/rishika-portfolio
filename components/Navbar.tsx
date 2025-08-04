@@ -19,7 +19,10 @@ const Navbar = () => {
   // Close menu on route change or window resize
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth >= 768) setIsOpen(false);
+      // Closes the mobile menu if the screen is resized to a desktop size.
+      if (window.innerWidth >= 768) {
+        setIsOpen(false);
+      }
     };
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
@@ -30,7 +33,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
         <div className="text-2xl font-bold text-pink-600">Rishika Rajora</div>
 
-        {/* Desktop Menu */}
+        {/* Desktop Menu - Hidden on mobile, shown on medium screens and up */}
         <div className="hidden md:flex space-x-8">
           {navLinks.map((link) => (
             <Link
@@ -43,7 +46,7 @@ const Navbar = () => {
           ))}
         </div>
 
-        {/* Mobile Menu Button */}
+        {/* Mobile Menu Button - Shown on mobile, hidden on medium screens and up */}
         <div className="md:hidden">
           <button
             onClick={() => setIsOpen(!isOpen)}
@@ -55,7 +58,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Dropdown */}
+      {/* Mobile Dropdown - Only shown when isOpen is true on mobile screens */}
       {isOpen && (
         <div className="md:hidden bg-white px-4 pb-4 pt-2 shadow-md space-y-2">
           {navLinks.map((link) => (

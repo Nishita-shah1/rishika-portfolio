@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
+import Navbar from "@/components/Navbar"
 import { Github, Linkedin, Mail, Phone, ExternalLink, Code, GraduationCap } from "lucide-react"
 
 export default function Portfolio() {
@@ -95,29 +96,14 @@ export default function Portfolio() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white">
-      {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-sm border-b border-gray-100">
-        <div className="max-w-6xl mx-auto px-6 py-4">
-          <div className="flex justify-center gap-2">
-            {navItems.map((item) => (
-              <a
-                key={item.id}
-                href={`#${item.id}`}
-                className={`
-                  rounded-full px-6 py-2 text-sm font-medium transition-all
-                  ${activeSection === item.id
-                    ? "bg-pink-500 text-white hover:bg-pink-600"
-                    : "text-gray-700 hover:text-pink-500 hover:bg-pink-50"
-                  }
-                `}
-              >
-                {item.label}
-              </a>
-            ))}
-          </div>
-        </div>
-      </nav>
+    <div className="bg-white text-black scroll-smooth">
+      {/* Navbar is fixed, so it won't push down the content. */}
+      <Navbar />
+
+      {/* Spacer div to prevent content from being hidden behind the fixed Navbar. */}
+      {/* Its height matches the Navbar's height to push the page content down. */}
+      <div className="h-16 md:h-20" />
+        
 
       {/* About Section */}
       <section id="about" className="pt-24 pb-16 bg-gradient-to-br from-pink-50 to-rose-100">
